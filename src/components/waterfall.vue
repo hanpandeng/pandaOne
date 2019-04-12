@@ -1,6 +1,6 @@
 <template>
   <div id="container">
-    <img src="../assets/panda.png" class="logo">
+    <img src="../assets/panda.png" class="logo" @click="change">
     <h1>{{name}}</h1>
     <ul>
       <li v-for="item in list" v-on:click="item.hidden = !item.hidden">
@@ -14,9 +14,9 @@
 <script>
 export default {
   name: "container",
+  props: ["name"],
   data() {
     return {
-      name: "This is the world of AKA Pandas",
       list: [
         {
           img:
@@ -118,6 +118,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    change() {
+      this.$emit("value", "Welcome to my world");
+    }
   }
 };
 </script>

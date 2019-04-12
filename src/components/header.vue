@@ -1,28 +1,30 @@
 <template>
   <div id="container">
-    <header v-on:click="handle()">{{title}}</header>
-    <a href="waterfall.vue"></a>
+    <header @click="hidden = !hidden">{{title}}</header>
+    <footer v-show="hidden">{{footer}}</footer>
   </div>
 </template>                                                                                             
 
 <script>
 export default {
   name: "container",
+  props: {
+    title: {
+      type: String
+    }
+  },
   data() {
     return {
-      title: "This is the world of AKA Pandas"
+      footer: "welcome to my city",
+      hidden: false
     };
-  },
-  methods: {
-    handle: function() {
-        console.log(new Date())
-    }
   }
 };
 </script>
 
 <style scoped>
-header {
+header,
+footer {
   width: 100%;
   color: #fff;
   padding: 1% 0;
@@ -30,6 +32,11 @@ header {
   font-size: 30px;
   font-weight: 600;
   background: #24dcb8;
+}
+footer {
+  background: #000;
+  position: fixed;
+  bottom: 0;
 }
 </style>
 

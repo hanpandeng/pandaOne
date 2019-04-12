@@ -2,21 +2,31 @@
 <template>
   <div id="app">
     <!-- 使用组件 -->
-    <!-- <waterfall/> -->
-    <two/>
+    <!-- <app-header :title="title" ></app-header> -->
+    <waterfall :name="title" @value="data($event)"></waterfall>
   </div>
 </template>
 
 // 行为：处理逻辑
 <script>
 //局部组件注册引入文件路径
-import two from "./components/two";
+import header from "./components/header";
 
 export default {
   name: "App",
   // 注册局部组件
   components: {
-    two
+    "app-header": header
+  },
+  data() {
+    return {
+      title: "This is the world of AKA Pandas"
+    };
+  },
+  methods: {
+    data(content) {
+      this.title = content;
+    }
   }
 };
 </script>
