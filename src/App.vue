@@ -1,36 +1,48 @@
 // 模板：HTML结构
 <template>
   <div id="app">
-    <img src="./assets/panda.png" class="logo">
-    <one/>
+    <!-- 使用组件 -->
+    <!-- <waterfall/> -->
+    <two/>
   </div>
 </template>
 
 // 行为：处理逻辑
 <script>
-import one from "./components/one";
+//局部组件注册引入文件路径
+import two from "./components/two";
 
 export default {
   name: "App",
+  // 注册局部组件
   components: {
-    one
+    two
   }
 };
 </script>
 
 // 样式：解决样式
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+input,
+button {
+  outline: none;
+}
+img {
+  display: block;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   background-image: url("./assets/rain.png");
-  /* background-size: 100% 100%; */
   background-attachment: fixed;
 }
-.logo {
-  margin: 8% 0 0 0;
+li {
+  list-style: none;
 }
 </style>
